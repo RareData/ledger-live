@@ -101,7 +101,6 @@ process.on("message", m => {
 
     case "init": {
       const { hydratedPerCurrency } = m;
-
       // hydrate all
       log("init", `hydrate currencies ${Object.keys(hydratedPerCurrency).join(", ")}`);
       Object.keys(hydratedPerCurrency).forEach(currencyId => {
@@ -110,7 +109,6 @@ process.on("message", m => {
         const data = serialized && JSON.parse(serialized);
         getCurrencyBridge(currency).hydrate(data, currency);
       });
-
       break;
     }
 

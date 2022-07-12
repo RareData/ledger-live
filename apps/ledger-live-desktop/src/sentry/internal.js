@@ -1,8 +1,17 @@
 // @flow
 import * as Sentry from "@sentry/node";
+import "@sentry/tracing";
+import { connectLogsToSentry } from "@ledgerhq/live-common/performance";
 import { init, setShouldSendCallback } from "./install";
+export { Sentry };
 
-const available = init(Sentry);
+const available = init(Sentry, {
+  integrations: [new Sentry.Integrations.Http({ tracing: true })],
+});
+
+if (available) {
+  connectLogsToSentry(Sentry);
+}
 
 export default (shouldSendCallback: () => boolean, userId: string) => {
   if (!available) return;

@@ -1,8 +1,11 @@
 // @flow
 import * as Sentry from "@sentry/electron/main";
+import "@sentry/tracing";
 import { init, setShouldSendCallback } from "./install";
 
 const available = init(Sentry);
+
+export { Sentry };
 
 export default (shouldSendCallback: () => boolean, userId: string) => {
   if (!available) return;
