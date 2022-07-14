@@ -2216,6 +2216,31 @@ const cryptocurrenciesById: Record<string, CryptoCurrency> = {
       },
     ],
   },
+  flare: {
+    type: "CryptoCurrency",
+    id: "flare",
+    coinType: 60,
+    name: "Flare",
+    managerAppName: "Flare",
+    ticker: "FLR",
+    scheme: "flare",
+    color: "#000000",
+    family: "ethereum",
+    ethereumLikeInfo: {
+      baseChain: "mainnet",
+      chainId: 14,
+      networkId: 14,
+      hardfork: "berlin",
+    },
+    units: ethereumUnits("FLR", "FLR"),
+    explorerViews: [
+      {
+        tx: "https://flare-explorer.flare.network/tx/$hash/internal-transactions",
+        address:
+          "https://flare-explorer.flare.network/address/$address/transactions",
+      },
+    ],
+  },
   nem: {
     type: "CryptoCurrency",
     id: "nem",
